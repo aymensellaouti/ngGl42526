@@ -1,13 +1,12 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Cv } from '../model/cv';
 import { ItemCvComponent } from '../item-cv/item-cv.component';
-import { NgForOf } from '@angular/common';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css'],
-  imports: [ItemCvComponent, NgForOf],
+  imports: [ItemCvComponent],
 })
 export class ListComponent {
   @Input()

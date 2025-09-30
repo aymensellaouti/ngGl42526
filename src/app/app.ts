@@ -6,11 +6,20 @@ import { Pere } from './communication/pere/pere';
 import { TodoComponent } from './todo/todo/todo.component';
 import { CvComponent } from './cv/cv/cv.component';
 import { WeekTodoComponent } from './todo/week-todo/week-todo.component';
-import { Navbar } from './components/navbar/navbar';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
-  imports: [Two, Som, Pere, TodoComponent, CvComponent, WeekTodoComponent, RouterOutlet, Navbar],
+  imports: [
+    Two,
+    Som,
+    Pere,
+    TodoComponent,
+    CvComponent,
+    WeekTodoComponent,
+    RouterOutlet,
+    NavbarComponent,
+  ],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

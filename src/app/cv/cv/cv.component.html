@@ -1,5 +1,7 @@
 <div class="row">
-  <app-list (forwardCv)="selectedCv = $event" [cvs]="cvs" />
+  <div class="col">
+    <app-list (forwardCv)="selectedCv = $event" [cvs]="cvs" />
+  </div>
   <div class="col">
     <app-card-cv [cv]="selectedCv" />
   </div>

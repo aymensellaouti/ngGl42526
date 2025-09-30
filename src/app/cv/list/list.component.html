@@ -1,12 +1,13 @@
 <ol class="list-group">
+  @for (cv of cvs; track cv.id) {
   <li
-    *ngFor="let cv of cvs; let isEven = even"
     class="list-group-item"
     [class]="{
-      'list-group-item-primary': isEven,
-      'list-group-item-secondary': !isEven
+      'list-group-item-primary': $even,
+      'list-group-item-secondary': $odd
     }"
   >
     <app-item-cv [cv]="cv" (selectCv)="forwardCv.emit($event)" />
   </li>
+  }
 </ol>

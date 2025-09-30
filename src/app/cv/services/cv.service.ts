@@ -1,4 +1,4 @@
-import {  Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Cv } from '../model/cv';
 
 @Injectable({
@@ -6,8 +6,8 @@ import { Cv } from '../model/cv';
 })
 export class CvService {
   private cvs = [
-    new Cv(1, 'aymen', 'sellaouti', 'teacher', 'as.jpg', '1234', 40),
-    new Cv(2, 'skander', 'sellaouti', 'enfant', '       ', '1234', 4),
+    new Cv(1, 'aymen', 'sellaouti', 'teacher', '1234', 'as.jpg', 40),
+    new Cv(2, 'skander', 'sellaouti', 'enfant', '1234', '       ', 4),
   ];
 
   /**

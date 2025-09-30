@@ -19,7 +19,7 @@ export const appConfig: ApplicationConfig = {
       provide: UUID_TOKEN,
       useValue: () => 'stana hata n installiw uuid',
     },
-    // provideToastr({}),
-    // provideAnimations(),
+    provideAnimations(),
+    provideToastr({}),
   ],
 };
