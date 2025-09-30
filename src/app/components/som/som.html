@@ -1,0 +1,6 @@
+<p>{{ x() }} + {{ y() }} = {{ z() }} / {{ dz() }}</p>
+
+<input type="number" [(ngModel)]="x" />
+<input type="number" [(ngModel)]="y" />
+
+<p (click)="addName()">{{ namesSize() }}</p>
