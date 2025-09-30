@@ -1,13 +1,7 @@
 <div class="row">
+  <app-list (forwardCv)="selectedCv = $event" [cvs]="cvs" />
   <div class="col">
-    <div class="alert alert-warning">
-      <p>{{ 1 | btc2Usd | currency}}</p>
-      <p>{{ 1 | btc2Usd: false}}</p>
-    </div>
-    <app-list (forwardCv)="selectedCv = $event" [cvs]="cvs" />
-  </div>
-  <div class="col">
-    <app-card-cv [cv]="selectedCv"/>
+    <app-card-cv [cv]="selectedCv" />
   </div>
 </div>
 <app-embauche />

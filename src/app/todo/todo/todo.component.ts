@@ -3,13 +3,14 @@ import { Todo } from '../model/todo';
 import { TodoService } from '../service/todo.service';
 
 import { FormsModule } from '@angular/forms';
+import { CvComponent } from '../../cv/cv/cv.component';
 
 @Component({
-    selector: 'app-todo',
-    templateUrl: './todo.component.html',
-    styleUrls: ['./todo.component.css'],
-    providers: [TodoService],
-    imports: [FormsModule]
+  selector: 'app-todo',
+  templateUrl: './todo.component.html',
+  styleUrls: ['./todo.component.css'],
+  providers: [TodoService],
+  imports: [FormsModule, CvComponent],
 })
 export class TodoComponent {
   private todoService = inject(TodoService);

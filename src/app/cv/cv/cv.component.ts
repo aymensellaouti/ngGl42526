@@ -5,11 +5,15 @@ import { CvService } from '../services/cv.service';
 import { ToastrService } from 'ngx-toastr';
 import { LoggerService } from '../../services/logger.service';
 import { TodoService } from '../../todo/service/todo.service';
+import { CardCvComponent } from '../card-cv/card-cv.component';
+import { EmbaucheComponent } from '../embauche/embauche.component';
+import { ListComponent } from '../list/list.component';
 
 @Component({
   selector: 'app-cv',
   templateUrl: './cv.component.html',
   styleUrls: ['./cv.component.css'],
+  imports: [CardCvComponent, EmbaucheComponent, ListComponent],
 })
 export class CvComponent {
   selectedCv: Cv | null = null;
@@ -17,10 +21,8 @@ export class CvComponent {
   cvs: Cv[] = this.cvService.getCvs();
   todoService = inject(TodoService);
   // sayHelloService = new SayHelloService();
-  toastr = inject(ToastrService);
-  constructor(
-    private loggerService: LoggerService,
-  ) {
-    this.toastr.info('cc je suis le cvComponent :D');
+  //toastr = inject(ToastrService);
+  constructor(private loggerService: LoggerService) {
+    //this.toastr.info('cc je suis le cvComponent :D');
   }
 }

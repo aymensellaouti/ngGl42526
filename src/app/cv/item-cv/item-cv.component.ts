@@ -1,14 +1,16 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Cv } from '../model/cv';
+import { DefaultImagePipe } from '../pipes/default-image.pipe';
 
 @Component({
   selector: 'app-item-cv',
   templateUrl: './item-cv.component.html',
-  styleUrls: ['./item-cv.component.css']
+  styleUrls: ['./item-cv.component.css'],
+  imports: [DefaultImagePipe],
 })
 export class ItemCvComponent {
   @Input({
-    required: true
+    required: true,
   })
   cv!: Cv;
   @Output()
