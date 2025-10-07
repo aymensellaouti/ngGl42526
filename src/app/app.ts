@@ -8,20 +8,15 @@ import { CvComponent } from './cv/cv/cv.component';
 import { WeekTodoComponent } from './todo/week-todo/week-todo.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { TestFormComponent } from './form/test-form/test-form.component';
+import { TestRxjs } from "./rxjs/test-rxjs/test-rxjs";
 
 @Component({
   selector: 'app-root',
   imports: [
-    Two,
-    Som,
-    Pere,
-    TodoComponent,
-    CvComponent,
-    WeekTodoComponent,
     RouterOutlet,
     NavbarComponent,
-    TestFormComponent,
-  ],
+    TestRxjs
+],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

@@ -14,6 +14,7 @@ import { LOGGER_TOKEN } from './injection tokens/logger.injection-token';
 import { LoggerService } from './services/logger.service';
 import { Logger2Service } from './services/logger2.service';
 import { Logger3Service } from './services/logger3.service';
+import { provideHttpClient } from '@angular/common/http';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
@@ -45,5 +46,6 @@ export const appConfig: ApplicationConfig = {
 
     provideAnimations(),
     provideToastr({}),
+    provideHttpClient()
   ],
 };
