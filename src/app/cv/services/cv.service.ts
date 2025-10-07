@@ -26,7 +26,7 @@ export class CvService {
    * @returns Cv | null
    */
   findCvById(id: number): Cv | null {
-    return null;
+    return this.cvs.find((cv) => cv.id == id) ?? null;
   }
 
   /**

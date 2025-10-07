@@ -7,6 +7,7 @@ import { TodoComponent } from './todo/todo/todo.component';
 import { CvComponent } from './cv/cv/cv.component';
 import { WeekTodoComponent } from './todo/week-todo/week-todo.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { TestFormComponent } from './form/test-form/test-form.component';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +20,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     WeekTodoComponent,
     RouterOutlet,
     NavbarComponent,
+    TestFormComponent,
   ],
   templateUrl: './app.html',
   styleUrl: './app.css',

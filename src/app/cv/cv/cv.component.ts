@@ -8,6 +8,7 @@ import { TodoService } from '../../todo/service/todo.service';
 import { CardCvComponent } from '../card-cv/card-cv.component';
 import { EmbaucheComponent } from '../embauche/embauche.component';
 import { ListComponent } from '../list/list.component';
+import { LOGGER_TOKEN } from '../../injection tokens/logger.injection-token';
 
 @Component({
   selector: 'app-cv',
@@ -20,9 +21,11 @@ export class CvComponent {
   cvService = inject(CvService);
   cvs: Cv[] = this.cvService.getCvs();
   todoService = inject(TodoService);
+  loggers = inject(LOGGER_TOKEN);
   // sayHelloService = new SayHelloService();
   //toastr = inject(ToastrService);
   constructor(private loggerService: LoggerService) {
+    this.loggers.forEach((logger) => logger.logger('Cv Component'));
     //this.toastr.info('cc je suis le cvComponent :D');
   }
 }
