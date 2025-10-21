@@ -8,15 +8,12 @@ import { CvComponent } from './cv/cv/cv.component';
 import { WeekTodoComponent } from './todo/week-todo/week-todo.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { TestFormComponent } from './form/test-form/test-form.component';
-import { TestRxjs } from "./rxjs/test-rxjs/test-rxjs";
+import { TestRxjs } from './rxjs/test-rxjs/test-rxjs';
+import { SliderComponent } from './rxjs/slider/slider.component';
 
 @Component({
   selector: 'app-root',
-  imports: [
-    RouterOutlet,
-    NavbarComponent,
-    TestRxjs
-],
+  imports: [RouterOutlet, NavbarComponent, TestRxjs, SliderComponent],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

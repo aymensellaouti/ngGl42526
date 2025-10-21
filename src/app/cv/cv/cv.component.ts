@@ -18,6 +18,8 @@ import { TestRxjs } from "../../rxjs/test-rxjs/test-rxjs";
   imports: [CardCvComponent, EmbaucheComponent, ListComponent, TestRxjs],
 })
 export class CvComponent {
+  private loggerService = inject(LoggerService);
+
   selectedCv: Cv | null = null;
   cvService = inject(CvService);
   cvs: Cv[] = this.cvService.getCvs();
@@ -25,7 +27,7 @@ export class CvComponent {
   loggers = inject(LOGGER_TOKEN);
   // sayHelloService = new SayHelloService();
   //toastr = inject(ToastrService);
-  constructor(private loggerService: LoggerService) {
+  constructor() {
     this.loggers.forEach((logger) => logger.logger('Cv Component'));
     //this.toastr.info('cc je suis le cvComponent :D');
   }

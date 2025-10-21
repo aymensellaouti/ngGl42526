@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
@@ -9,7 +9,7 @@ import {
 import { CvService } from '../services/cv.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { APP_ROUTES } from 'src/config/routes.config';
+
 import { Cv } from '../model/cv';
 import { NgIf, JsonPipe } from '@angular/common';
 
@@ -21,12 +21,10 @@ import { NgIf, JsonPipe } from '@angular/common';
   imports: [FormsModule, ReactiveFormsModule, NgIf, JsonPipe],
 })
 export class AddCvComponent {
-  constructor(
-    private cvService: CvService,
-    private router: Router,
-    private toastr: ToastrService,
-    private formBuilder: FormBuilder
-  ) {}
+  private cvService = inject(CvService);
+  private router = inject(Router);
+  private toastr = inject(ToastrService);
+  private formBuilder = inject(FormBuilder);
 
   form = this.formBuilder.group({
     name: ['', Validators.required],
