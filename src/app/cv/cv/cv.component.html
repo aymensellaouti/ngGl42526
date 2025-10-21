@@ -1,10 +1,23 @@
-<div class="row">
+<div class="row" (click)="test()">
   <div class="col">
-    <app-list (forwardCv)="selectedCv = $event" [cvs]="cvs" />
+    <!-- @if (cvs$ | async; as cvs) { -->
+    @if (cvRxResource.isLoading()) {
+      <div class="alert alert-info">
+        loading....
+      </div>
+    } @else {
+      <app-list  [cvs]="cvRxResource.value()" />
+    }
+    <!-- } -->
   </div>
+  @if (cvRxResource.error()) {
+    <div class="alert alert-danger">
+      Something xernt wrong!!
+    </div>
+  }
   <div class="col">
-    <app-card-cv [cv]="selectedCv" />
+    <app-card-cv [cv]="selectedCv()" />
   </div>
 </div>
 <app-embauche />
-<app-test-rxjs />
+<!-- <app-test-rxjs /> -->

@@ -10,6 +10,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { TestFormComponent } from './form/test-form/test-form.component';
 import { TestRxjs } from './rxjs/test-rxjs/test-rxjs';
 import { SliderComponent } from './rxjs/slider/slider.component';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,9 @@ export class App {
   protected readonly title = signal('gl42526');
   protected title2 = 'T2';
   protected isHidden = signal(false);
+
   constructor() {
+
     // setTimeout(() => {
     //   this.title.set('change');
     //   this.title2 = 'T2 jdid';

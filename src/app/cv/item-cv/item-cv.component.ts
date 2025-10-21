@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { Cv } from '../model/cv';
 import { DefaultImagePipe } from '../pipes/default-image.pipe';
+import { CvService } from '../services/cv.service';
 
 @Component({
   selector: 'app-item-cv',
@@ -13,10 +14,10 @@ export class ItemCvComponent {
     required: true,
   })
   cv!: Cv;
-  @Output()
-  selectCv = new EventEmitter<Cv>();
+  cvService = inject(CvService);
   @Input() size = 50;
   onSelectCv() {
-    this.selectCv.emit(this.cv);
+    this.cvService.selectCv(this.cv);
+   // this.selectCv.emit(this.cv);
   }
 }

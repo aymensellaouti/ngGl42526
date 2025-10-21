@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ToastrService } from 'ngx-toastr';
 import { filter, map, Observable, Subscription } from 'rxjs';
 
@@ -24,7 +25,9 @@ export class TestRxjsComponent {
       }, 1000);
     });
 
-    this.myObservable$.subscribe((val) => {
+    this.myObservable$
+    .pipe(takeUntilDestroyed())
+    .subscribe((val) => {
       console.log(val);
     });
     // setTimeout(

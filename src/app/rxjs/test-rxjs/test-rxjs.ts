@@ -1,7 +1,7 @@
 import { AsyncPipe } from '@angular/common';
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, OnDestroy, signal } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { filter, map, Observable } from 'rxjs';
+import { filter, map, Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-test-rxjs',
@@ -9,10 +9,10 @@ import { filter, map, Observable } from 'rxjs';
   templateUrl: './test-rxjs.html',
   styleUrl: './test-rxjs.css',
 })
-export class TestRxjs {
+export class TestRxjs implements OnDestroy {
   private toaster = inject(ToastrService);
   // compteArebours = signal(5);
-
+  subscription = new Subscription();
   firstObservable$: Observable<number>;
 
   constructor() {
@@ -29,10 +29,13 @@ export class TestRxjs {
         observer.next(i--);
       }, 1000);
     });
-    this.firstObservable$.subscribe({
-      next: (valeurJdida) => console.log(valeurJdida),
-    });
+    this.subscription.add(
+      this.firstObservable$.subscribe({
+        next: (valeurJdida) => console.log(valeurJdida),
+      })
+    )
     // setTimeout(() => {
+    this.subscription.add(
       this.firstObservable$
       .pipe(
         // 5 4 3 2 1
@@ -44,10 +47,13 @@ export class TestRxjs {
       .subscribe({
         next: (valeurJdida) => this.toaster.info('' + valeurJdida),
         complete: () => this.toaster.error('BOOOOOM!!!!'),
-      });
+      }));
     // }, 3000);
     // this.firstObservable$.subscribe({ next: (data) => {
     //   console.log(data); this.compteArebours.set(data);
     // } });
+  }
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }
