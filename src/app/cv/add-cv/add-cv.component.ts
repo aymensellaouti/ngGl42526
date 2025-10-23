@@ -18,12 +18,10 @@ import { NgIf, JsonPipe } from '@angular/common';
   templateUrl: './add-cv.component.html',
   styleUrls: ['./add-cv.component.css'],
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, NgIf, JsonPipe],
+  imports: [FormsModule, ReactiveFormsModule, JsonPipe],
 })
 export class AddCvComponent {
-  private cvService = inject(CvService);
-  private router = inject(Router);
-  private toastr = inject(ToastrService);
+
   private formBuilder = inject(FormBuilder);
 
   form = this.formBuilder.group({
