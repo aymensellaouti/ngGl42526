@@ -6,19 +6,13 @@ import {
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { CvService } from '../services/cv.service';
-import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
-
-import { Cv } from '../model/cv';
-import { NgIf, JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-add-cv',
   templateUrl: './add-cv.component.html',
   styleUrls: ['./add-cv.component.css'],
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, JsonPipe],
+  imports: [FormsModule, ReactiveFormsModule],
 })
 export class AddCvComponent {
   private formBuilder = inject(FormBuilder);

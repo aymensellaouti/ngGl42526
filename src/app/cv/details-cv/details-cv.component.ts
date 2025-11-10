@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Cv } from '../model/cv';
-import { DefaultImagePipe } from '../pipes/default-image.pipe';
+
 import { ActivatedRoute, Router } from '@angular/router';
 import { CvService } from '../services/cv.service';
 import { APP_ROUTES } from '../../config/app-routes.config';
@@ -9,7 +9,7 @@ import { APP_ROUTES } from '../../config/app-routes.config';
   selector: 'app-details-cv',
   templateUrl: './details-cv.component.html',
   styleUrls: ['./details-cv.component.css'],
-  imports: [DefaultImagePipe],
+  imports: [],
 })
 export class DetailsCvComponent {
   cv: Cv | null = null;

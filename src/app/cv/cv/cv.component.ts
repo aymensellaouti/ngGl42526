@@ -9,15 +9,15 @@ import { CardCvComponent } from '../card-cv/card-cv.component';
 import { EmbaucheComponent } from '../embauche/embauche.component';
 import { ListComponent } from '../list/list.component';
 import { LOGGER_TOKEN } from '../../injection tokens/logger.injection-token';
-import { TestRxjs } from "../../rxjs/test-rxjs/test-rxjs";
-import { AsyncPipe } from '@angular/common';
+
+
 import { rxResource, toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-cv',
   templateUrl: './cv.component.html',
   styleUrls: ['./cv.component.css'],
-  imports: [CardCvComponent, EmbaucheComponent, ListComponent, TestRxjs, AsyncPipe],
+  imports: [CardCvComponent, EmbaucheComponent, ListComponent],
 })
 export class CvComponent {
   private loggerService = inject(LoggerService);

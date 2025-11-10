@@ -8,14 +8,14 @@ import { CvComponent } from './cv/cv/cv.component';
 import { WeekTodoComponent } from './todo/week-todo/week-todo.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { TestFormComponent } from './form/test-form/test-form.component';
-import { TestRxjs } from './rxjs/test-rxjs/test-rxjs';
-import { SliderComponent } from './rxjs/slider/slider.component';
+
+
 import { timer } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavbarComponent, TestRxjs, SliderComponent],
+  imports: [RouterOutlet, NavbarComponent],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

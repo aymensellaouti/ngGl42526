@@ -3,8 +3,8 @@ import { Todo } from '../model/todo';
 import { TodoService } from '../service/todo.service';
 
 import { FormsModule } from '@angular/forms';
-import { CvComponent } from '../../cv/cv/cv.component';
-import { AsyncPipe, JsonPipe } from '@angular/common';
+
+import { JsonPipe } from '@angular/common';
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { Subscription, timer } from 'rxjs';
 
@@ -13,7 +13,7 @@ import { Subscription, timer } from 'rxjs';
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.css'],
   providers: [TodoService],
-  imports: [FormsModule, CvComponent, AsyncPipe, JsonPipe],
+  imports: [FormsModule, JsonPipe],
 })
 export class TodoComponent implements OnDestroy {
   private todoService = inject(TodoService);

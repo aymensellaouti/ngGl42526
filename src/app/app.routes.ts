@@ -9,7 +9,7 @@ import { CV_ROUTES } from './cv/cv.routing';
 import { Back } from './components/back/back';
 
 export const routes: Routes = [
-  { path: '', component: Two },
+  { path: '', loadComponent: ()=> import('./components/two/two').then(m =>m.Two) },
   {
     path: 'back',
     component: Back,
