@@ -3,3 +3,7 @@
 @import 'bootstrap-icons';
 @import 'ngx-toastr/toastr';
 @import './../public/assets/css/rotating-card.css';
+
+input.ng-invalid.ng-touched {
+  border: red solid 2px;
+}

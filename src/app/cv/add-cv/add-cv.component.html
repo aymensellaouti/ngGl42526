@@ -2,10 +2,7 @@
 <form [formGroup]="form">
   Name:
   <input type="text" class="form-control" formControlName="name" />
-  <div
-    *ngIf="form.get('name')?.errors && form.get('name')?.touched"
-    class="alert alert-danger"
-  >
+  <div *ngIf="form.get('name')?.errors && form.get('name')?.touched" class="alert alert-danger">
     Ce champ est obligatoire
   </div>
   Firstname:
@@ -15,7 +12,5 @@
   Job:
   <input type="text" class="form-control" formControlName="job" /> Path:
   <input type="text" class="form-control" formControlName="path" />
-  <button [disabled]="form.invalid" class="btn btn-primary" (click)="addCv()">
-    add cv
-  </button>
+  <button class="btn btn-primary" (click)="addCv()">add cv</button>
 </form>

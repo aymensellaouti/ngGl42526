@@ -21,10 +21,9 @@ import { NgIf, JsonPipe } from '@angular/common';
   imports: [FormsModule, ReactiveFormsModule, JsonPipe],
 })
 export class AddCvComponent {
-
   private formBuilder = inject(FormBuilder);
 
-  form = this.formBuilder.group({
+  form = this.formBuilder.nonNullable.group({
     name: ['', Validators.required],
     firstname: ['', Validators.required],
     path: [''],
@@ -39,11 +38,24 @@ export class AddCvComponent {
       0,
       {
         validators: [Validators.required],
+        updateOn: 'blur',
       },
     ],
   });
-
-  addCv() {}
+  constructor() {
+    this.age.valueChanges.subscribe({
+      next: (age) => {
+        if (age < 18) {
+          this.path?.reset();
+          this.path?.disable();
+        } else this.path?.enable();
+      },
+    });
+  }
+  addCv() {
+    console.log({ value: this.form.value });
+    console.log({ getRawValue: this.form.getRawValue() });
+  }
 
   get name(): AbstractControl {
     return this.form.get('name')!;
