@@ -16,8 +16,8 @@ import { CounterService } from './services/counter.service';
   standalone: true,
   imports: [AsyncPipe],
   template: `
-    <span class="node-label" [style.background-color]="color"
-      >13 - {{ counter}}</span
+    <span (click)="increaseCounter()" class="node-label" [style.background-color]="color"
+      >13 - {{ counterSignal()}}</span
     >
   `,
   styles: ``,
@@ -25,26 +25,27 @@ import { CounterService } from './services/counter.service';
   encapsulation: ViewEncapsulation.None,
 })
 export class ThirteenComponent extends BaseNodeComponent {
-  counter = 0;
+  //counter = 0;
   //counterBs = new BehaviorSubject<number>(0);
   //counter$ = this.counterBs.asObservable();
-  //counterSignal = signal(0);
+  counterSignal = signal(0);
 
   host = inject(ElementRef);
   counterService = inject(CounterService);
 
   constructor() {
     super();
-    setInterval(() => {
-      this.counter++
-    }, 1000)
+    // setInterval(() => {
+    //   this.counterSignal.update(value => value + 1)
+    // }, 1000)
     // fromEvent(this.host.nativeElement, 'click').subscribe(() => {
     //   this.increaseCounter();
     // });
   }
 
   increaseCounter() {
-    // this.counterSignal.update((val) => val + 1);
-    this.counterService.increaseCounter();
+    this.counterSignal.update((val) => val + 1);
+   // this.counterService.increaseCounter();
+
   }
 }
