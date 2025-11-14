@@ -12,6 +12,7 @@ import { TestFormComponent } from './form/test-form/test-form.component';
 
 import { timer } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { StartCdComponent } from "./change Detection/start-cd/start-cd.component";
 
 @Component({
   selector: 'app-root',
