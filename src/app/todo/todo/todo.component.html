@@ -1,3 +1,4 @@
+{{todosApi | json}}
 <div class="row">
   <div class="col">
     <ol class="list-group">
@@ -35,7 +36,7 @@
   </ol> -->
   <ol class="list-group">
     @for (todoApi of todosSignal() ; track todoApi.id ) {
-      <li class="list-group list-group-item">
+      <li class="list-group list-group-item list-group list-group-item-primary">
         {{todoApi | json}}
       </li>
     }

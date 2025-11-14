@@ -45,7 +45,18 @@ export class CvService {
    * @param id
    * @returns Cv | null
    */
-  findCvById(id: number): Cv | null {
+  findCvById(id: number): Observable<Cv> {
+    return this.http.get<Cv>(APP_API.cv + id);
+  }
+
+  /**
+   *
+   * Cherche un cv avec son id dans lai liste fictive de cvs
+   *
+   * @param id
+   * @returns Cv | null
+   */
+  findFakeCvById(id: number): Cv | null {
     return this.cvs.find((cv) => cv.id == id) ?? null;
   }
 

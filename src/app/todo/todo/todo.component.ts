@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { JsonPipe } from '@angular/common';
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { Subscription, timer } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-todo',
@@ -22,6 +23,8 @@ export class TodoComponent implements OnDestroy {
     initialValue: [],
   });
   todos: Todo[] = [];
+  acr = inject(ActivatedRoute);
+  todosApi = this.acr.snapshot.data['todos'];
   /**
    * Le todo qui rerésente le formulaire d'ajout d'un todo
    */

@@ -1,9 +1,10 @@
 import {
   ApplicationConfig,
+  importProvidersFrom,
   provideBrowserGlobalErrorListeners,
   provideZonelessChangeDetection,
 } from '@angular/core';
-import { provideRouter, withDebugTracing } from '@angular/router';
+import { PreloadAllModules, provideRouter, withDebugTracing, withPreloading } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideToastr } from 'ngx-toastr';
@@ -15,12 +16,16 @@ import { LoggerService } from './services/logger.service';
 import { Logger2Service } from './services/logger2.service';
 import { Logger3Service } from './services/logger3.service';
 import { provideHttpClient } from '@angular/common/http';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
+import { CustomPreloadingStrategy } from './preloading strategies/custom.preloading-strategy';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
     provideRouter(
-      routes
+      routes,
+      withPreloading(CustomPreloadingStrategy)
+      //withPreloading(PreloadAllModules)
       // withDebugTracing()
     ),
     {
@@ -43,9 +48,9 @@ export const appConfig: ApplicationConfig = {
       useClass: Logger3Service,
       multi: true,
     },
-
+    importProvidersFrom(NgxUiLoaderModule.forRoot({})),
     provideAnimations(),
     provideToastr({}),
-    provideHttpClient()
+    provideHttpClient(),
   ],
 };
