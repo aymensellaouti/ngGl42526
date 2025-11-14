@@ -17,7 +17,7 @@ import { CounterService } from './services/counter.service';
   imports: [AsyncPipe],
   template: `
     <span class="node-label" [style.background-color]="color"
-      >13 - {{ counterService.counter()}}</span
+      >13 - {{ counter}}</span
     >
   `,
   styles: ``,
@@ -25,6 +25,7 @@ import { CounterService } from './services/counter.service';
   encapsulation: ViewEncapsulation.None,
 })
 export class ThirteenComponent extends BaseNodeComponent {
+  counter = 0;
   //counterBs = new BehaviorSubject<number>(0);
   //counter$ = this.counterBs.asObservable();
   //counterSignal = signal(0);
@@ -34,12 +35,12 @@ export class ThirteenComponent extends BaseNodeComponent {
 
   constructor() {
     super();
-    // setInterval(() => {
-    //   this.counterSignal.update((value) => value + 1 );
-    // }, 1000)
-    fromEvent(this.host.nativeElement, 'click').subscribe(() => {
-      this.increaseCounter();
-    });
+    setInterval(() => {
+      this.counter++
+    }, 1000)
+    // fromEvent(this.host.nativeElement, 'click').subscribe(() => {
+    //   this.increaseCounter();
+    // });
   }
 
   increaseCounter() {
