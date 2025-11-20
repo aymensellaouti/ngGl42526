@@ -1,10 +1,5 @@
 import { AsyncPipe } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  ViewEncapsulation,
-  signal,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation, signal } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { BaseNodeComponent } from './base-node.component';
 import { ThirteenComponent } from './thirteen.component';
@@ -13,7 +8,7 @@ import { TwelveComponent } from './twelve.component';
 @Component({
   selector: 'app-seven',
   standalone: true,
-  imports: [TwelveComponent, ThirteenComponent, AsyncPipe],
+  imports: [TwelveComponent, ThirteenComponent],
   template: `
     <span class="node-label" [style.background-color]="color">7</span>
 

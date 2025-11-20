@@ -7,7 +7,6 @@ import {
   inject,
   signal,
 } from '@angular/core';
-import { BehaviorSubject, fromEvent } from 'rxjs';
 import { BaseNodeComponent } from './base-node.component';
 import { CounterService } from './services/counter.service';
 
@@ -17,7 +16,7 @@ import { CounterService } from './services/counter.service';
   imports: [AsyncPipe],
   template: `
     <span (click)="increaseCounter()" class="node-label" [style.background-color]="color"
-      >13 - {{ counterSignal()}}</span
+      >13 - {{ counterSignal() }}</span
     >
   `,
   styles: ``,
@@ -45,7 +44,6 @@ export class ThirteenComponent extends BaseNodeComponent {
 
   increaseCounter() {
     this.counterSignal.update((val) => val + 1);
-   // this.counterService.increaseCounter();
-
+    // this.counterService.increaseCounter();
   }
 }
