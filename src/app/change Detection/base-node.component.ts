@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { randomColor } from '../utils';
-
 
 @Component({
   selector: 'app-base-node',
@@ -8,6 +7,7 @@ import { randomColor } from '../utils';
   template: ``,
 })
 export class BaseNodeComponent {
+  // #randomColor = signal(randomColor')
   // Exemple from : https://github.com/profanis/codeShotsWithProfanis.git Merci Profanis pour ce travail :D
   get color() {
     return randomColor();
