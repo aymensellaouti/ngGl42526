@@ -9,18 +9,19 @@ import {
 } from '@angular/core';
 import { BaseNodeComponent } from './base-node.component';
 import { CounterService } from './services/counter.service';
+import { fromEvent } from 'rxjs';
 
 @Component({
   selector: 'app-thirteen',
   standalone: true,
   imports: [AsyncPipe],
   template: `
-    <span (click)="increaseCounter()" class="node-label" [style.background-color]="color"
-      >13 - {{ counterSignal() }}</span
+    <span  class="node-label" [style.background-color]="color"
+      >13 - {{ counterService.counter() }}</span
     >
   `,
   styles: ``,
-  changeDetection: ChangeDetectionStrategy.Default,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
 export class ThirteenComponent extends BaseNodeComponent {
@@ -37,9 +38,9 @@ export class ThirteenComponent extends BaseNodeComponent {
     // setInterval(() => {
     //   this.counterSignal.update(value => value + 1)
     // }, 1000)
-    // fromEvent(this.host.nativeElement, 'click').subscribe(() => {
-    //   this.increaseCounter();
-    // });
+    fromEvent(this.host.nativeElement, 'click').subscribe(() => {
+      this.counterService.increaseCounter();
+    });
   }
 
   increaseCounter() {
